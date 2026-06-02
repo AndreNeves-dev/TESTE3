@@ -31,8 +31,8 @@ app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-const supabase = 
-    supabaseClient.createClient('https://https://vehquhoulralvtvbirjg.supabase.co', 
+const supabase =
+    supabaseClient.createClient('https://vehquhoulralvtvbirjg.supabase.co',
         'sb_publishable_ku-8mo0Bb6MxIan9ujZx_Q_2XXnyqXX')
 
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Produtos</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gerenciador de Produtos</h1>
+  </header>
+
+  <main>
+
+    <!-- Formulário: Adicionar Produto -->
+    <section class="card">
+      <h2>Adicionar Produto</h2>
+      <form id="add-product-form">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" placeholder="Nome do produto" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Descrição:</label>
+          <textarea id="description" name="description" placeholder="Descrição do produto" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="price">Preço (R$):</label>
+          <input type="number" id="price" name="price" placeholder="0" required step="1" min="0">
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+      </form>
+    </section>
+
+    <!-- Consulta por ID -->
+    <section class="card">
+      <h2>Buscar Produto por ID</h2>
+      <div class="search-group">
+        <input type="number" id="search-id" placeholder="Digite o ID do produto" min="1">
+        <button id="search-btn" class="btn btn-secondary">Buscar</button>
+      </div>
+      <div id="search-result"></div>
+    </section>
+
+    <!-- Formulário: Atualizar Produto (oculto até clicar em Atualizar) -->
+    <section class="card" id="update-section" style="display:none;">
+      <h2>Atualizar Produto</h2>
+      <form id="update-product-form">
+        <input type="hidden" id="update-id">
+        <div class="form-group">
+          <label for="update-name">Nome:</label>
+          <input type="text" id="update-name" name="update-name" required>
+        </div>
+        <div class="form-group">
+          <label for="update-description">Descrição:</label>
+          <textarea id="update-description" name="update-description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="update-price">Preço (R$):</label>
+          <input type="number" id="update-price" name="update-price" required step="1" min="0">
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          <button type="button" id="cancel-update" class="btn btn-danger">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Lista de Produtos -->
+    <section class="card">
+      <h2>Lista de Produtos</h2>
+      <ul id="products"></ul>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('load', fetchProducts);
+  </script>
+</body>
+</html>
